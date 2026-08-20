@@ -299,8 +299,8 @@ BEGIN
         SELECT
             CASE
                 WHEN cid LIKE 'NAS%'
-                    THEN SUBSTRING(cid, 4, LEN(cid))
-                ELSE cid
+                    THEN REPLACE(SUBSTRING(cid, 4, LEN(cid)), '-', '')
+                    ELSE REPLACE(cid, '-', '')
             END AS cid,
 
             CASE
